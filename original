@@ -1,0 +1,416 @@
+// import React, { useEffect, useState, useRef } from 'react';
+// import {
+//   Text,
+//   View,
+//   StyleSheet,
+//   FlatList,
+//   Image,
+//   TextInput,
+//   TouchableOpacity,
+// } from 'react-native';
+import {Use Navigation, rous ae'pojsanvssaldkfv}
+// import { useNavigation, useRoute } from '@react-navigation/native';
+// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+// import { IMAGES } from '../Constants/images';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+// import Send from '../src/assets/images/sf.svg';
+// import Phone from '../src/assets/images/phone.svg';
+// // import { TextInput } from 'react-native-paper';
+// import Miss from '../src/assets/images/callMissed.svg'
+// import VideoChat from '../src/assets/images/videoChat.svg';
+
+// const ChatScreen = ({ route }: any) => {
+//   const { receiverId, receiverName, receiverImage } = route.params;
+
+//   const navigation = useNavigation<any>();
+//   const [input, setInput] = useState('');
+//   const [messages, setMessages] = useState<Message[]>([
+//     { id: '1', text: 'Hey 👋', sender: 'other',type:'text' },
+//     { id: '2', text: "Hi! What's up?", sender: 'me',type:'text' },
+//     { id: '3', text: 'Nothing much, just chilling.', sender: 'other',type:'text' },
+//     { id: '4', text: 'Same here. Working on my app.', sender: 'me' ,type:'text'},
+//     { id: '5', text: 'Oh nice! What app?', sender: 'other',type:'text' },
+//     { id: '6', text: 'A chat application UI.', sender: 'me' ,type:'text'},
+//     { id: '7', text: 'Wow 🔥 React Native?', sender: 'other',type:'text' },
+//     { id: '8', text: 'Yes 😎', sender: 'me' ,type:'text'},
+//     { id: '9', text: 'That’s cool.', sender: 'other' ,type:'text'},
+//     { id: '10', text: 'Still fixing the message bubbles.', sender: 'me' ,type:'text'},
+//     { id: '11', text: 'Alignment issues? 😂', sender: 'other',type:'text' },
+//     { id: '12', text: 'Exactly that 😭', sender: 'me' ,type:'text'},
+//     { id: '13', text: 'Classic flexbox problem.', sender: 'other',type:'text' },
+//     { id: '14', text: 'Flexbox always tests patience.', sender: 'me' ,type:'text'},
+//     { id: '15', text: 'Did you add auto scroll?', sender: 'other' ,type:'text'},
+//     { id: '16', text: 'Yes, using flatListRef.scrollToEnd()', sender: 'me',type:'text' },
+//     { id: '17', text: 'Niceee 🔥', sender: 'other',type:'text' },
+//     { id: '18', text: 'Now adding timestamps.', sender: 'me' ,type:'text'},
+//     { id: '19', text: 'Make it like WhatsApp style.', sender: 'other',type:'text' },
+//     { id: '20', text: 'Yes, planning that.', sender: 'me' ,type:'text'},
+//     { id: '21', text: 'Dark mode also add 😌', sender: 'other' ,type:'text'},
+//     { id: '22', text: 'Good idea!', sender: 'me',type:'text' },
+//     { id: '23', text: 'Push it to GitHub soon.', sender: 'other' ,type:'text'},
+//     { id: '24', text: 'After cleaning code 😅', sender: 'me',type:'text' },
+//     { id: '25', text: 'Haha fair.', sender: 'other',type:'text' },
+//     {
+//       id: '26',
+//       text: 'Testing long message now to see wrapping behavior inside the bubble component and making sure maxWidth works properly.',
+//       sender: 'me',type:'text'
+//     },
+//     { id: '27', text: 'Yes, always test long messages.', sender: 'other',type:'text' },
+//     {
+//       id: '28',
+//       text: 'Also testing multiple lines of text inside a single message bubble for layout stability.',
+//       sender: 'me',type:'text'
+//     },
+//     { id: '29', text: 'Looks good from my side.', sender: 'other',type:'text' },
+//     { id: '30', text: 'Perfect 😎', sender: 'me',type:'text' },
+//     {id:'31', text:'So what you think? Is react-native fun like you thought or not? Me, Personally I Luv It. Have you also listened to the new playboi carti song? Drake is also good. His melodies are top notch. ', sender:'other',type:'text'},
+//     {id:'32', type:'call',text:'video call', sender:'me', duration:'00:34 Secs'}
+  
+//   ]);
+
+//   const flatListRef = useRef<FlatList>(null);
+
+//   const Max_length = 200;
+//   const BASE_URL = 'https://luvo.blr1.cdn.digitaloceanspaces.com/luvo/';
+
+//   type Message = {
+//     id: string;
+//     text: string;
+//     sender: 'me' | 'other';
+//     type: 'text' | 'call'
+//     duration?: string;
+//   };
+//   const resolveImageUri = (path?: string) => {
+//     if (!path) {
+//       return null;
+//     }
+//     if (path.startsWith('http')) return path;
+//     return BASE_URL + path;
+//   };
+//   const imageUri = resolveImageUri(receiverImage);
+
+//   const handleSend = () => {
+//     if (!input.trim()) return;
+
+//     const newMessage: Message = {
+//       id: Date.now().toString(),
+//       text: input,
+//       sender: 'me',
+//       type:'text'
+//     };
+
+//     setMessages(prev => [...prev, newMessage]);
+//     setInput('');
+
+//     setTimeout(() => {
+//       flatListRef.current?.scrollToEnd({ animated: true });
+//     }, 100);
+//   };
+
+//   const renderMessage = ({ item }: { item: Message }) => {
+//     const isMe = item.sender === 'me';
+
+//     // if(item.type === 'call'){
+//     //   return (
+//     //     <View style={style.container}>
+//     //     <Phone width={18} height={18} />
+//     //     <Text>{item.text}</Text>
+//     //     <Text>{item.duration}</Text>
+//     //     </View>
+//     //   );
+//     // }
+
+//     return (
+//       <View
+//         style={[
+//           style.messageRow,
+//           isMe ? style.myMessageRow : style.OtherMessageRow,
+//         ]}
+//       >
+//         {item.type === 'call' ? (
+         
+//          <View
+//             style={[
+//               style.CallBubble,
+//               isMe ? style.myBubble : style.otherBubble,
+//             ]}
+//             >
+//               <Miss
+//               width={45}
+//               height={45}
+//               />
+//               <Text
+//               style={[
+//                 style.messageText,
+//                 {color: isMe ? '#000' : '#fff'}
+//               ]}
+//               >
+//                 {item.text}
+//               </Text>
+//               {item.duration && (
+//                 <Text
+//                 style={[
+//                   style.messageText,
+//                   {color : isMe ? '#000' : '#fff'}
+//                 ]}
+//                 >
+//                   {item.duration}
+//                 </Text>
+//               )}
+//             </View>
+//         ):(
+//         <View
+//           style={[
+//             style.MessageBubble,
+//             isMe ? style.myBubble : style.otherBubble,
+//           ]}
+//         >
+//           <Text
+//             style={[
+//               style.messageText,
+//               isMe ? { color: '#000' } : { color: '#fff' },
+//             ]}
+//           >
+//             {item.text}
+//           </Text>
+//         </View>
+//         )}
+//       </View>
+//     );
+//   };
+
+//   return (
+//     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff9fb' }}>
+//       <View style={style.customHeader}>
+//         <TouchableOpacity onPress={() => navigation.goBack()}>
+//           <MaterialCommunityIcons name="arrow-left" size={24} color={'#000'} />
+//         </TouchableOpacity>
+
+//         <View style={style.profileSection}>
+//           <Image
+//             source={imageUri ? { uri: imageUri } : IMAGES.pfp}
+//             style={style.avatar}
+//           />
+
+//           <TouchableOpacity>
+//             <Text style={style.headerTitle}>{receiverName}</Text>
+//           </TouchableOpacity>
+//         </View>
+
+//         {/* <View style={style.rightIcons}> */}
+
+//         <TouchableOpacity>
+//           <Phone width={20} height={20} style={style.iconSpacing} />
+//         </TouchableOpacity>
+//         <TouchableOpacity>
+//           <VideoChat width={24} height={24} style={style.iconSpacing1} />
+//         </TouchableOpacity>
+//         <View>
+//           <TouchableOpacity>
+//             <MaterialCommunityIcons
+//               name="dots-vertical"
+//               size={25}
+//               color={'#0c1f67'}
+//               style={{ marginTop: 5 }}
+//             />
+//           </TouchableOpacity>
+//         </View>
+//         {/* </View> */}
+//         {/* <View style={{ width: 4 }} /> */}
+//       </View>
+
+//       <View style={style.headerSeperator} />
+
+//       <FlatList
+//         ref={flatListRef}
+//         data={messages}
+//         keyExtractor={item => item.id}
+//         renderItem={renderMessage}
+//         showsVerticalScrollIndicator={false}
+//         style={{flex:1}}
+//         contentContainerStyle={{ paddingBottom:100, paddingHorizontal:5, paddingTop:5}}
+//       />
+
+//       <View style={style.inputWrapper}>
+//         {/* <Text>{input.length}/{Max_length} Character Left </Text> */}
+
+//         <Text style={style.charText}>
+//           {input.length}/{Max_length}{' '}
+//           <Text style={{ fontFamily: 'Poppins-Regular' }}>
+//             Characters left{' '}
+//           </Text>
+//         </Text>
+
+//         <View style={style.inputRow}>
+//           <TextInput
+//             style={style.textInput}
+//             placeholder="Type Message..."
+//             placeholderTextColor={'#000'}
+//             // style={{backgroundColor:'#dc143c'}}
+//             value={input}
+//             onChangeText={setInput}
+//             maxLength={200}
+//             multiline={true}
+//           />
+
+//           <TouchableOpacity onPress={handleSend} disabled={!input.trim()}>
+//             <Send color={input.trim() ? '#d03444' : '#ed9cb3'} />
+//           </TouchableOpacity>
+//         </View>
+//       </View>
+//     </SafeAreaView>
+//   );
+// };
+// const style = StyleSheet.create({
+//   customHeader: {
+//     height: 75,
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     justifyContent: 'space-between',
+//     paddingHorizontal: 15,
+//     backgroundColor: '#fff',
+//   },
+//   iconSpacing: {
+//     marginRight: 10,
+//     marginTop: 5,
+//   },
+//   iconSpacing1: {
+//     marginRight: 6,
+//     marginTop: 5,
+//     marginLeft: 6,
+//   },
+//   headerTitle: {
+//     fontSize: 17,
+//     padding: 16,
+//     // paddingTop:14,
+//     textAlign: 'center',
+//     fontFamily: 'Poppins-SemiBold',
+//   },
+//   headerSeperator: {
+//     height: 1,
+//     width: '95%',
+//     alignSelf: 'center',
+//     backgroundColor: '#f1f1f1',
+//     // marginTop: 0.5,
+//   },
+//   rightIcons: {
+//     flexDirection: 'row',
+//     alignItems: 'flex-end',
+//     marginRight: -14,
+//     marginTop: 5,
+//   },
+//   avatar: {
+//     width: 45,
+//     height: 45,
+//     borderRadius: 50,
+//     // marginTop:60
+//   },
+//   profileSection: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     flex: 1,
+//     marginLeft: 15,
+//   },
+//   charText: {
+//     color: '#dc143c',
+//     fontSize: 13,
+//     marginBottom: 7,
+//     fontFamily: 'Poppins-SemiBold',
+//   },
+//   charText1: {
+//     color: '#dc143c',
+//     fontSize: 13,
+//     marginBottom: 7,
+//   },
+//   inputWrapper: {
+//     position: 'absolute',
+//     bottom: 0,
+//     left: 0,
+//     right: 0,
+//     paddingHorizontal: 16,
+//     paddingBottom: 7,
+//     paddingTop: 15,
+//     // borderTopWidth:1,
+//     borderTopEndRadius: 30,
+//     borderTopStartRadius: 30,
+//     // borderColor:'#e1d7d7',
+//     // marginBottom:30,
+//     backgroundColor: '#fff',
+//   },
+//   inputRow: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     borderWidth: 1,
+//     borderColor: '#d03444',
+//     borderRadius: 15,
+//     paddingHorizontal: 15,
+//     height: 50,
+//     backgroundColor: '#f6e0e516',
+//   },
+//   sendButton: {
+//     // marginLeft:-70
+//   },
+//   messageRow: {
+//     marginBottom: 12,
+//     flexDirection: 'row',
+//   },
+//   myMessageRow: {
+//     justifyContent: 'flex-end',
+//     alignSelf: 'flex-end',
+//   },
+//   OtherMessageRow: {
+//     justifyContent: 'flex-start',
+//     alignSelf: 'flex-start',
+//   },
+//   MessageBubble: {
+//     maxWidth: '75%',
+//     paddingVertical: 10,
+//     paddingHorizontal: 14,
+//     borderRadius: 18,
+//   },
+//     CallBubble: {
+//     maxWidth: '85%',
+//     paddingVertical: 10,
+//     paddingHorizontal: 14,
+//     borderRadius: 18,
+//     flexDirection:'row',
+//     alignItems:"center"
+//   },
+//   myBubble: {
+//     backgroundColor: '#ffffff',
+//     borderBottomEndRadius: 4,
+//   },
+//   otherBubble: {
+//     backgroundColor: '#c62034',
+//     borderBottomStartRadius: 4,
+//   },
+//   messageText: {
+//     fontSize: 14,
+//     fontFamily: 'Poppins-Medium',
+//     color: '#333',
+//   },
+//   textInput: {
+//     // flexDirection: 'row',
+//     // alignItems: 'center',
+//     // borderWidth: 1,
+//     // borderColor: '#d03444',
+//     // borderRadius: 15,
+//     // paddingHorizontal: 15,
+//     // height: 50,
+//     // backgroundColor: '#f6e0e516',
+//     // width:'100%'
+//     flex: 1,
+//   },
+//   container:{
+//     // alignSelf:'center',
+//     backgroundColor:'#f3f3f3',
+//     paddingVertical:12,
+//     paddingHorizontal:25,
+//     borderRadius:20,
+//     marginVertical:10,
+//     // alignItems:'center'
+//   },
+
+// });
+
+// export default ChatScreen;

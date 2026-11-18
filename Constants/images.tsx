@@ -1,0 +1,45 @@
+
+export const IMAGES = {
+    Logo: require('../src/assets/images/Logo.png'),
+    Onboarding:require('../src/assets/images/Onboarding/Onboarding.png'),
+    Onboarding2: require('../src/assets/images/Onboarding/onboarding2.png'),
+    Onboarding3: require('../src/assets/images/Onboarding/onboarding3.png'),
+    Nextbutton1:require('../src/assets/images/Onboarding/NextButton1.png'),
+    Nextbutton2:require('../src/assets/images/Onboarding/NextButton2.png'),
+    Nextbutton3:require('../src/assets/images/Onboarding/NextButton3.png'),
+    Login:require('../src/assets/images/login.png'),
+    Background: require('../src/assets/images/Login1.png'),
+    Frame:require('../src/assets/images/Frame.png'),
+    HomeIcon:require('../src/assets/images/home.svg'),
+    LikeIcon:require('../src/assets/images/heart.svg'),
+    ChatIcon:require('../src/assets/images/chat.svg'),
+    pfp:require('../src/assets/images/pfp.png'),
+    bell:require('../src/assets/images/bell.svg'),
+    User:require('../src/assets/images/user.png'),
+    Chat:require('../src/assets/images/chat.png'),
+    heart:require('../src/assets/images/favicon.png'),
+    Home:require('../src/assets/images/screen.png'),
+    Mia:require('../src/assets/images/Mia.png'),
+//     Mia1:require('../src/assets/images/Mia1.jpg'),
+//     Mia2:require('../src/assets/images/Mia2.jpg'),
+//     Mia3:require('../src/assets/images/Mia3.jpg'),
+//     Mia4:require('../src/assets/images/Mia4.jpg'),
+//     Mia5:require('../src/assets/images/Mia5.jpg'),
+//     Mia6:require('../src/assets/images/Mia6.png'),
+    lan:require('../src/assets/images/lan.png'),
+    Message:require('../src/assets/images/mess1.png'),
+    rating:require('../src/assets/images/rating.png'),
+    Notification:require('../src/assets/images/notfication.png'),
+    Euser: require('../src/assets/images/profileImg.png'),
+    emptyHome:require('../src/assets/images/emptyHome.png'),
+    MyProfile:require('../src/assets/images/MyProfile.png'),
+    Refer:require('../src/assets/images/referImage.png'),
+    Share:require('../src/assets/images/shareImage.png'),
+    share:require('../src/assets/images/share.png'),
+    topLogo:require('../src/assets/images/topLogo.png'),
+}
+
+
+
+export const IMAGE_URL = 
+'https://luvo.blr1.cdn.digitaloceanspaces.com/luvo/';
